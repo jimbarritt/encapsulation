@@ -3,7 +3,6 @@
 (use 'clojure.contrib.test-is)
 (use 'jimbarritt.encapsulation.level_0.galleon)
 
-
 (deftest calculates-fighting-strength
   (println "We can refer to the global variables even though they are defined in a different namespace to us:")
   (println (format "Number of red points %d" galleon-total-points-red-cards))
@@ -23,6 +22,5 @@
     (. System/out (println (format "Fighting Strength %d" fighting-strength)))
   )))  
 )
-
 
 (run-tests)
