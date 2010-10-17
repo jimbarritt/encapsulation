@@ -1,5 +1,6 @@
 require "test/unit"
 require "level_0/no_encapsulation"
+
 class NoEncapsulationTest < Test::Unit::TestCase
 
   # How would we deal with more than one galleon?
