@@ -13,10 +13,10 @@ public class NoEncapsulationTest {
         Galleon galleon = new Galleon();
 
         galleon.totalPointsOfRedCrewCards = 3;
-        galleon.totalPointsOfBlackCrewCards = 4;
+        galleon.totalPointsOfBlackCrewCards = 1;
 
         int fightingStrength = abs(galleon.totalPointsOfBlackCrewCards - galleon.totalPointsOfRedCrewCards);
-        assertThat(fightingStrength, is(1));
-
+        
+        assertThat(fightingStrength, is(2));
     }
 }
