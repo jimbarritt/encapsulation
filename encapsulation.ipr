@@ -275,6 +275,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ide/intellij/encapsulation-java/encapsulation-java.iml" filepath="$PROJECT_DIR$/ide/intellij/encapsulation-java/encapsulation-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ide/intellij/encapsulation-ruby/encapsulation-ruby.iml" filepath="$PROJECT_DIR$/ide/intellij/encapsulation-ruby/encapsulation-ruby.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="Ruby SDK 1.8.7" project-jdk-type="RUBY_SDK">
