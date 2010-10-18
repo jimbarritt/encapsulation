@@ -26,7 +26,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 	</scriptdef>
 	
 	<target name="run-unit-tests">
-		<rhinounit options="{verbose:true, stackTrace:true}" haltOnFirstFailure="true" rhinoUnitUtilPath="lib/rhinounit_1_2_1/rhinoUnitUtil.js">
+		<rhinounit options="{verbose:true, stackTrace:true}" ignoredglobalvars="galleon_red_card_points galleon_black_card_points" haltOnFirstFailure="true" rhinoUnitUtilPath="lib/rhinounit_1_2_1/rhinoUnitUtil.js">
 			<fileset dir="src/test/javascript">
 				<include name="**/*.js"/>				
 			</fileset>
