@@ -2,6 +2,14 @@
 <project version="4">
   <component name="AntConfiguration">
     <defaultAnt bundledAnt="true" />
+    <buildFile url="file://$PROJECT_DIR$/encapsulation-javascript/build.xml">
+      <additionalClassPath />
+      <antReference name="Apache Ant version 1.8.1" />
+      <customJdkName value="1.6" />
+      <maximumHeapSize value="128" />
+      <maximumStackSize value="2" />
+      <properties />
+    </buildFile>
   </component>
   <component name="BSFConsole">
     <option name="searchOptions">
@@ -269,6 +277,13 @@
       </item>
     </group>
   </component>
+  <component name="ProjectDictionaryState">
+    <dictionary name="jim">
+      <words>
+        <w>rhinounit</w>
+      </words>
+    </dictionary>
+  </component>
   <component name="ProjectKey">
     <option name="state" value="project://default" />
   </component>
@@ -276,6 +291,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ide/intellij/encapsulation-clojure/encapsulation-clojure.iml" filepath="$PROJECT_DIR$/ide/intellij/encapsulation-clojure/encapsulation-clojure.iml" />
       <module fileurl="file://$PROJECT_DIR$/ide/intellij/encapsulation-java/encapsulation-java.iml" filepath="$PROJECT_DIR$/ide/intellij/encapsulation-java/encapsulation-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ide/intellij/encapsulation-javascript/encapsulation-javascript.iml" filepath="$PROJECT_DIR$/ide/intellij/encapsulation-javascript/encapsulation-javascript.iml" />
       <module fileurl="file://$PROJECT_DIR$/ide/intellij/encapsulation-ruby/encapsulation-ruby.iml" filepath="$PROJECT_DIR$/ide/intellij/encapsulation-ruby/encapsulation-ruby.iml" />
     </modules>
   </component>
