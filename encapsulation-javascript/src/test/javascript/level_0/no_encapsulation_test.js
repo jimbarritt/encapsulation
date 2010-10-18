@@ -11,6 +11,11 @@ testCases(test,
         assert.that(galleon_black_card_points, eq(1));
         assert.that(galleon_red_card_points, eq(4));
         assert.that(fightingStrength, eq(3));
+    },
+
+    function reportsFailure() {
+        assert.that(3, eq(4));
     }
+
 
 );
