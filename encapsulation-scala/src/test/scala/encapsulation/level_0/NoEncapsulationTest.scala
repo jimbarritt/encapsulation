@@ -1,0 +1,3 @@
+package encapsulation.level_0
+
+class NoEncapsulationTest
