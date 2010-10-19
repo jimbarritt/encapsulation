@@ -306,9 +306,6 @@
       </value>
     </option>
   </component>
-  <component name="ScalacSettings">
-    <option name="USE_FSC" value="true" />
-  </component>
   <component name="SvnBranchConfigurationManager">
     <option name="mySupportsUserInfoFilter" value="true" />
   </component>
