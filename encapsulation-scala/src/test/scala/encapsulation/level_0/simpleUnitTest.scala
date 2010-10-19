@@ -1,13 +1,12 @@
 package encapsulation.level_0
 
 import org.scalatest.junit.JUnitSuite
-import org.scalatest.junit.AssertionsForJUnit
 import scala.collection.mutable.ListBuffer
 import org.junit.Assert._
 import org.junit.Test
 import org.junit.Before
 
-
+// see http://www.scalatest.org/
 class simpleUnitTest extends JUnitSuite {
 
   var sb: StringBuilder = _

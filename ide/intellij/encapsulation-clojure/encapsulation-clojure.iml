@@ -9,6 +9,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../encapsulation-clojure">
       <sourceFolder url="file://$MODULE_DIR$/../../../encapsulation-clojure/src/main/clojure" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../encapsulation-clojure/src/test/clojure" isTestSource="true" />
     </content>
     <orderEntry type="jdk" jdkName="1.6" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
