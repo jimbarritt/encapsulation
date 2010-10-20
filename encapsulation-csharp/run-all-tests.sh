@@ -11,3 +11,8 @@ fi
 mcs -out:target/hello.exe src/main/csharp/hello.cs
 
 mono target/hello.exe
+
+mcs -out:target/Encapsulation.dll -t:library src/main/csharp/hello.cs
+mcs -out:target/EncapsulationTest.dll -t:library -r:nunit.framework,target/Encapsulation.dll src/test/csharp/encapsulation/level_0/noEncapsulationTest.cs
+
+nunit-console target/EncapsulationTest.dll
