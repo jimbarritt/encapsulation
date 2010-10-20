@@ -284,6 +284,7 @@
       <module fileurl="file://$PROJECT_DIR$/intellij/encapsulation-clojure/encapsulation-clojure.iml" filepath="$PROJECT_DIR$/intellij/encapsulation-clojure/encapsulation-clojure.iml" />
       <module fileurl="file://$PROJECT_DIR$/ide/intellij/encapsulation-clojure/encapsulation-clojure.iml" filepath="$PROJECT_DIR$/ide/intellij/encapsulation-clojure/encapsulation-clojure.iml" />
       <module fileurl="file://$PROJECT_DIR$/intellij/encapsulation-csharp/encapsulation-csharp.iml" filepath="$PROJECT_DIR$/intellij/encapsulation-csharp/encapsulation-csharp.iml" />
+      <module fileurl="file://$PROJECT_DIR$//encapsulation-ide.iml" filepath="$PROJECT_DIR$//encapsulation-ide.iml" />
       <module fileurl="file://$PROJECT_DIR$/intellij/encapsulation-java/encapsulation-java.iml" filepath="$PROJECT_DIR$/intellij/encapsulation-java/encapsulation-java.iml" />
       <module fileurl="file://$PROJECT_DIR$/ide/intellij/encapsulation-java/encapsulation-java.iml" filepath="$PROJECT_DIR$/ide/intellij/encapsulation-java/encapsulation-java.iml" />
       <module fileurl="file://$PROJECT_DIR$/intellij/encapsulation-javascript/encapsulation-javascript.iml" filepath="$PROJECT_DIR$/intellij/encapsulation-javascript/encapsulation-javascript.iml" />
