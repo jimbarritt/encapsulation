@@ -283,6 +283,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/intellij/encapsulation-clojure/encapsulation-clojure.iml" filepath="$PROJECT_DIR$/intellij/encapsulation-clojure/encapsulation-clojure.iml" />
       <module fileurl="file://$PROJECT_DIR$/ide/intellij/encapsulation-clojure/encapsulation-clojure.iml" filepath="$PROJECT_DIR$/ide/intellij/encapsulation-clojure/encapsulation-clojure.iml" />
+      <module fileurl="file://$PROJECT_DIR$/intellij/encapsulation-csharp/encapsulation-csharp.iml" filepath="$PROJECT_DIR$/intellij/encapsulation-csharp/encapsulation-csharp.iml" />
       <module fileurl="file://$PROJECT_DIR$/intellij/encapsulation-java/encapsulation-java.iml" filepath="$PROJECT_DIR$/intellij/encapsulation-java/encapsulation-java.iml" />
       <module fileurl="file://$PROJECT_DIR$/ide/intellij/encapsulation-java/encapsulation-java.iml" filepath="$PROJECT_DIR$/ide/intellij/encapsulation-java/encapsulation-java.iml" />
       <module fileurl="file://$PROJECT_DIR$/intellij/encapsulation-javascript/encapsulation-javascript.iml" filepath="$PROJECT_DIR$/intellij/encapsulation-javascript/encapsulation-javascript.iml" />
@@ -325,8 +326,8 @@
   <component name="libraryTable">
     <library name="clojure-1.1.0">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/encapsulation-clojure/lib/clojure.jar!/" />
-        <root url="jar://$PROJECT_DIR$/encapsulation-clojure/lib/clojure-contrib.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../encapsulation-clojure/lib/clojure-contrib.jar!/" />
+        <root url="jar://$PROJECT_DIR$/../encapsulation-clojure/lib/clojure.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
