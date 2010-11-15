@@ -16,7 +16,6 @@ public class NoEncapsulationTest {
         galleon.totalPointsOfBlackCrewCards = 1;
 
         int fightingStrength = abs(galleon.totalPointsOfBlackCrewCards - galleon.totalPointsOfRedCrewCards);
-        
         assertThat(fightingStrength, is(2));
     }
 }
