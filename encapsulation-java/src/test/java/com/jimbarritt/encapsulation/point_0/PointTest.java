@@ -6,7 +6,7 @@ import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 import static junit.framework.Assert.assertEquals;
 
-public class PlaneTest {
+public class PointTest {
 
     @Test
     public void calculates_the_distance_between_two_points() {

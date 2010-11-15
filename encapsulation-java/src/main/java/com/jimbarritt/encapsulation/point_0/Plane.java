@@ -11,7 +11,7 @@ public class Plane {
     public double distanceBetween(Point p1, Point p2) {
         int a = p2.x - p1.x;
         int b = p2.y - p1.y;
-        return sqrt(pow(a, 2) + pow(b, 2));        
+        return sqrt(pow(a, 2) + pow(b, 2));
     }
 
 }
