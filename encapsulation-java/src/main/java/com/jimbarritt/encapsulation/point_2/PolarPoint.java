@@ -2,12 +2,12 @@ package com.jimbarritt.encapsulation.point_2;
 
 import static java.lang.Math.*;
 
-public class Point {
+public class PolarPoint {
 
     private final int x;
     private final int y;
 
-    public Point(int x, int y) {
+    public PolarPoint(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -20,7 +20,7 @@ public class Point {
         return y;
     }
 
-    public double distanceTo(Point other) {
+    public double distanceTo(PolarPoint other) {
         int a = x - other.x;
         int b = y - other.y;
         return sqrt(pow(a, 2) + pow(b, 2));
