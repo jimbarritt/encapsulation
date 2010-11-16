@@ -2,7 +2,7 @@ package com.jimbarritt.encapsulation.point_2;
 
 import static java.lang.Math.*;
 
-public class CartesianPoint {
+public class CartesianPoint implements Point {
 
     private final int x;
     private final int y;
@@ -20,9 +20,14 @@ public class CartesianPoint {
         return y;
     }
 
-    public double distanceTo(CartesianPoint other) {
-        int a = x - other.x;
-        int b = y - other.y;
+    public double distanceTo(Point other) {
+        CartesianPoint cartesianOther = other.asCartesianPoint();
+        int a = x - cartesianOther.x;
+        int b = y - cartesianOther.y;
         return sqrt(pow(a, 2) + pow(b, 2));
+    }
+
+    public CartesianPoint asCartesianPoint() {
+        return this;
     }
 }

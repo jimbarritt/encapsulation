@@ -1,6 +1,6 @@
 package com.jimbarritt.encapsulation.point_2;
 
-import com.jimbarritt.encapsulation.point_1.Point;
+import com.jimbarritt.encapsulation.point_2.Point;
 import org.junit.*;
 
 import static java.lang.Math.*;
@@ -10,8 +10,8 @@ public class PointTest {
 
     @Test
     public void calculates_the_distance_between_two_points() {
-        Point p1 = new Point(10, 20);
-        Point p2 = new Point(20, 30);
+        Point p1 = new CartesianPoint(10, 20);
+        Point p2 = new CartesianPoint(20, 30);
 
         double expectedDistance = sqrt(pow(20-10, 2) + pow(30-20, 2));
 
