@@ -1,4 +1,4 @@
-package com.jimbarritt.encapsulation.point_2;
+package com.jimbarritt.encapsulation.point_3;
 
 import static java.lang.Math.*;
 import static java.lang.String.format;
@@ -11,14 +11,6 @@ public class CartesianPoint implements Point {
     public CartesianPoint(int x, int y) {
         this.x = x;
         this.y = y;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
     }
 
     public double distanceTo(Point other) {

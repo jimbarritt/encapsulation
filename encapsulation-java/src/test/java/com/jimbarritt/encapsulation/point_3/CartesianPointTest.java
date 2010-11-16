@@ -1,4 +1,4 @@
-package com.jimbarritt.encapsulation.point_2;
+package com.jimbarritt.encapsulation.point_3;
 
 import org.junit.*;
 

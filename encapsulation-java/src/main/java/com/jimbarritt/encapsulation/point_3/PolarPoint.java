@@ -1,4 +1,4 @@
-package com.jimbarritt.encapsulation.point_2;
+package com.jimbarritt.encapsulation.point_3;
 
 import static java.lang.Math.cos;
 import static java.lang.Math.round;
