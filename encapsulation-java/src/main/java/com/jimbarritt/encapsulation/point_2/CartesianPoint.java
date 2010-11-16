@@ -1,6 +1,7 @@
 package com.jimbarritt.encapsulation.point_2;
 
 import static java.lang.Math.*;
+import static java.lang.String.format;
 
 public class CartesianPoint implements Point {
 
@@ -29,5 +30,9 @@ public class CartesianPoint implements Point {
 
     public CartesianPoint asCartesianPoint() {
         return this;
+    }
+
+    public String toString() {
+        return format("x=%d, y=%d", x, y);
     }
 }
