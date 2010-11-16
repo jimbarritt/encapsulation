@@ -5,9 +5,7 @@ namespace encapsulation.level_0 {
     public class NoEncapsulationTest
     {
 
-        
-
-        [Test]
+      [Test]
         public void CanCompareForEquality()
         {
             Assert.AreEqual(4, 4);
