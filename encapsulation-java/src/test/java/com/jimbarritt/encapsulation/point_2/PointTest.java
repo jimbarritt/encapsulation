@@ -24,8 +24,7 @@ public class PointTest {
         double distanceP1_P2 = p1.distanceTo(p2);
         double distanceP1_P3 = p1.distanceTo(p3);
 
-        assertEquals(distanceP1_P2, distanceP1_P3, 0.0001);
-        assertEquals(14.14214, distanceP1_P2, 0.0001);
+        assertEquals(distanceP1_P2, distanceP1_P3, 0.0001);        
     }
 
 }
