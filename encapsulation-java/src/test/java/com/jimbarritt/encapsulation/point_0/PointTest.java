@@ -2,7 +2,6 @@ package com.jimbarritt.encapsulation.point_0;
 
 import org.junit.*;
 
-import static java.lang.Math.*;
 import static junit.framework.Assert.*;
 
 public class PointTest {
