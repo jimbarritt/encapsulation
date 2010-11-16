@@ -2,9 +2,7 @@ package com.jimbarritt.encapsulation.point_2;
 
 import org.junit.*;
 
-import static java.lang.Math.pow;
-import static java.lang.Math.sqrt;
-import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.*;
 
 public class PointTest {
 
