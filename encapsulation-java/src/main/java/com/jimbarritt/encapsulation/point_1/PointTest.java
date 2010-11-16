@@ -1,10 +1,9 @@
-package com.jimbarritt.encapsulation.point_2;
+package com.jimbarritt.encapsulation.point_1;
 
 import org.junit.*;
 
-import static java.lang.Math.pow;
-import static java.lang.Math.sqrt;
 import static junit.framework.Assert.assertEquals;
+
 
 public class PointTest {
 
@@ -13,7 +12,8 @@ public class PointTest {
         Point p1 = new Point(10, 20);
         Point p2 = new Point(20, 30);
 
-        double actualDistance = p1.distanceTo(p2);
+        Plane plane = new Plane();
+        double actualDistance = plane.distanceBetween(p1, p2);
 
         assertEquals(14.14214, actualDistance, 0.0001);
     }
