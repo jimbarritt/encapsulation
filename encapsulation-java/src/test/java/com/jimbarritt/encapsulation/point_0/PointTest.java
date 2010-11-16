@@ -17,12 +17,10 @@ public class PointTest {
         p2.x = 20;
         p2.y = 30;
 
-        double expectedDistance = sqrt(pow(20 - 10, 2) + pow(30 - 20, 2));
-
         Plane plane = new Plane();
         double actualDistance = plane.distanceBetween(p1, p2);
 
-        assertEquals(expectedDistance, actualDistance, 0.0001);
+        assertEquals(14.14214, actualDistance, 0.0001);
     }
 
 }
