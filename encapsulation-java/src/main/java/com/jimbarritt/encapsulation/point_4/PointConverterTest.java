@@ -3,6 +3,7 @@ package com.jimbarritt.encapsulation.point_4;
 import org.junit.*;
 
 import static com.jimbarritt.encapsulation.point_4.CalculationPrecision.*;
+import static java.lang.String.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
 
@@ -36,7 +37,7 @@ public class PointConverterTest {
         PolarPoint polarPoint = pointConverter.toPolar(cartesianPoint);
 
         PolarPoint expectedPolarPoint = new PolarPoint(0.9827937, 36.0555128);
-        assertThat(String.format("%s\nshould be equal\nto %s", polarPoint, expectedPolarPoint),
+        assertThat(format("\nExpected: %s\nActual  : %s", expectedPolarPoint, polarPoint),
                    polarPoint.isEqualTo(expectedPolarPoint, sixDecimalPlaces));
     }
 
