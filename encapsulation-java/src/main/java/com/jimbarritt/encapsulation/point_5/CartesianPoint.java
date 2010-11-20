@@ -40,10 +40,6 @@ public class CartesianPoint implements Point {
         return new PolarPoint(theta, r);
     }
 
-    public CartesianPoint asCartesianPoint() {
-        return this;
-    }
-
     public String toString() {
         return format("x=%d, y=%d", x, y);
     }
