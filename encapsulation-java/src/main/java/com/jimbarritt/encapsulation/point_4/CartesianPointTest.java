@@ -31,4 +31,17 @@ public class CartesianPointTest {
         assertTrue(format("(%s) should equal (%s)", polarPoint, expectedPolarPoint),
                    polarPoint.isEqualTo(expectedPolarPoint, sixDecimalPlaces));
     }
+
+    @Test
+    public void equality_and_identity() {
+        CartesianPoint p1 = new CartesianPoint(20, 30);
+        CartesianPoint p2 = new CartesianPoint(20, 30);
+        CartesianPoint p3 = new CartesianPoint(10, 40);
+
+        assertTrue(p1.equals(p2));
+        assertTrue(p1.hashCode() == p2.hashCode());
+
+        assertFalse(p1.equals(p3));
+        assertFalse(p1.hashCode() == p3.hashCode());        
+    }
 }

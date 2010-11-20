@@ -45,13 +45,23 @@ public class CartesianPoint implements Point {
         return sqrt(pow(a, 2) + pow(b, 2));
     }
 
-    @Override public boolean equals(Object other) {
-        if (!(other instanceof CartesianPoint)) {
-            return false;
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        CartesianPoint cartesianPoint = (CartesianPoint) other;
-        return x == cartesianPoint.x && y == cartesianPoint.y;
+        CartesianPoint that = (CartesianPoint) o;
+
+        if (x != that.x) return false;
+        if (y != that.y) return false;
+
+        return true;
     }
 
+    @Override
+    public int hashCode() {
+        int result = x;
+        result = 31 * result + y;
+        return result;
+    }
 }

@@ -39,21 +39,6 @@ public class PointConverterTest {
                 polarPoint.isEqualTo(expectedPolarPoint, sixDecimalPlaces));
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void throws_if_unrecognised_point_type() {
-        pointConverter.toPolarPoint(new Point() {
-
-            public double distanceTo(Point other) {
-                return 0;
-            }
-
-            public CartesianPoint asCartesianPoint() {
-                return null;
-            }
-        });
-    }
-
-
     @Test
     public void converts_cartesian_to_cartesian() {
         CartesianPoint cartesianPoint = new CartesianPoint(20, 30);
@@ -75,5 +60,25 @@ public class PointConverterTest {
         CartesianPoint expectedPoint = new CartesianPoint(20, 30);
         assertThat(convertedPoint, is(expectedPoint));
     }
-    
+
+    @Test(expected = UnrecognisedPointTypeException.class)
+    public void throws_if_unrecognised_type_when_converting_to_cartesian() {
+        pointConverter.toCartesianPoint(new FakePoint());
+    }
+
+    @Test(expected = UnrecognisedPointTypeException.class)
+    public void throws_if_unrecognised_point_type_when_converting_to_polar() {
+        pointConverter.toPolarPoint(new FakePoint());
+    }
+
+    private static class FakePoint implements Point {
+
+        public double distanceTo(Point other) {
+            return 0;
+        }
+
+        public CartesianPoint asCartesianPoint() {
+            return null;
+        }
+    }
 }

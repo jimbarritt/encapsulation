@@ -1,7 +1,5 @@
 package com.jimbarritt.encapsulation.point_4;
 
-import static java.lang.String.*;
-
 public class PointConverter {
 
     public PolarPoint toPolarPoint(Point point) {
@@ -12,7 +10,7 @@ public class PointConverter {
         if (point instanceof CartesianPoint) {
             return toPolar((CartesianPoint) point);
         }
-        throw new IllegalArgumentException(format("I didn't recognise the type of point [%s]", point.getClass().getName()));
+        throw new UnrecognisedPointTypeException(point);
     }
 
     public CartesianPoint toCartesianPoint(Point point) {
@@ -23,7 +21,7 @@ public class PointConverter {
         if (point instanceof PolarPoint) {
             return toCartesian((PolarPoint)point);
         }
-        return null;
+        throw new UnrecognisedPointTypeException(point);
     }
 
     private CartesianPoint toCartesian(PolarPoint polarPoint) {
