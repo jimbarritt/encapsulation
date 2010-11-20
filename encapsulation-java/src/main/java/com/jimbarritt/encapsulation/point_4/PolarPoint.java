@@ -27,17 +27,10 @@ public class PolarPoint implements Point {
     }
 
     public boolean isEqualTo(PolarPoint other, CalculationPrecision precision) {
-        return precision.isEqual(r, other.rho())
-                && theta.isEqual(other.theta(), precision);
+        return precision.isEqual(r, other.r)
+                && theta.isEqual(other.theta, precision);
     }
 
-    public double rho() {
-        return r;
-    }
-
-    public Radians theta() {
-        return theta;
-    }
 
     public CartesianPoint asCartesianPoint() {
         int x = (int)round((r * theta.cos()));

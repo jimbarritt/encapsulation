@@ -28,7 +28,7 @@ public class PointConverterTest {
         assertThat(convertedPoint, is(polarPoint));
     }
 
-    @Test    
+    @Test
     public void converts_cartesian_to_polar_points() {
         CartesianPoint cartesianPoint = new CartesianPoint(20, 30);
 
@@ -36,16 +36,7 @@ public class PointConverterTest {
 
         PolarPoint expectedPolarPoint = new PolarPoint(0.9827937, 36.0555128);
         assertThat(format("\nExpected: %s\nActual  : %s", expectedPolarPoint, polarPoint),
-                   polarPoint.isEqualTo(expectedPolarPoint, sixDecimalPlaces));
-    }
-
-    @Test
-    public void converts_cartesian_to_cartesian() {
-        CartesianPoint cartesianPoint = new CartesianPoint(20, 30);
-
-        CartesianPoint convertedPoint = pointConverter.toCartesianPoint(cartesianPoint);
-        
-        assertThat(convertedPoint, is(cartesianPoint));
+                polarPoint.isEqualTo(expectedPolarPoint, sixDecimalPlaces));
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -59,7 +50,30 @@ public class PointConverterTest {
             public CartesianPoint asCartesianPoint() {
                 return null;
             }
-        });       
+        });
     }
 
+
+    @Test
+    public void converts_cartesian_to_cartesian() {
+        CartesianPoint cartesianPoint = new CartesianPoint(20, 30);
+
+        CartesianPoint convertedPoint = pointConverter.toCartesianPoint(cartesianPoint);
+
+        assertThat(convertedPoint, is(cartesianPoint));
+    }
+
+    /**
+     * p1 == {20, 30} == {theta=0.9827937, r=36.0555128}
+     */
+    @Test
+    public void converts_polar_to_cartesian() {
+        PolarPoint polarPoint = new PolarPoint(0.9827937, 36.0555128);
+
+        CartesianPoint convertedPoint = pointConverter.toCartesianPoint(polarPoint);
+
+        CartesianPoint expectedPoint = new CartesianPoint(20, 30);
+        assertThat(convertedPoint, is(expectedPoint));
+    }
+    
 }

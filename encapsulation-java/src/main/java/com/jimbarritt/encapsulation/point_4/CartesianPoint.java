@@ -45,4 +45,13 @@ public class CartesianPoint implements Point {
         return sqrt(pow(a, 2) + pow(b, 2));
     }
 
+    @Override public boolean equals(Object other) {
+        if (!(other instanceof CartesianPoint)) {
+            return false;
+        }
+
+        CartesianPoint cartesianPoint = (CartesianPoint) other;
+        return x == cartesianPoint.x && y == cartesianPoint.y;
+    }
+
 }

@@ -19,7 +19,15 @@ public class PointConverter {
         if (point instanceof CartesianPoint) {
             return (CartesianPoint) point;
         }
+
+        if (point instanceof PolarPoint) {
+            return toCartesian((PolarPoint)point);
+        }
         return null;
+    }
+
+    private CartesianPoint toCartesian(PolarPoint polarPoint) {
+        return polarPoint.asCartesianPoint();
     }
 
     private PolarPoint toPolar(CartesianPoint cartesianPoint) {
