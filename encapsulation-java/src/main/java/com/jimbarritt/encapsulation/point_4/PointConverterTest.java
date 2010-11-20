@@ -19,26 +19,47 @@ public class PointConverterTest {
         pointConverter = new PointConverter();
     }
 
-
     @Test
     public void converts_polar_to_polar() {
         PolarPoint polarPoint = new PolarPoint(0.9827937, 36.0555128);
 
-        PolarPoint convertedPoint = pointConverter.toPolar(polarPoint);
+        PolarPoint convertedPoint = pointConverter.toPolarPoint(polarPoint);
 
         assertThat(convertedPoint, is(polarPoint));
     }
-
 
     @Test    
     public void converts_cartesian_to_polar_points() {
         CartesianPoint cartesianPoint = new CartesianPoint(20, 30);
 
-        PolarPoint polarPoint = pointConverter.toPolar(cartesianPoint);
+        PolarPoint polarPoint = pointConverter.toPolarPoint(cartesianPoint);
 
         PolarPoint expectedPolarPoint = new PolarPoint(0.9827937, 36.0555128);
         assertThat(format("\nExpected: %s\nActual  : %s", expectedPolarPoint, polarPoint),
                    polarPoint.isEqualTo(expectedPolarPoint, sixDecimalPlaces));
+    }
+
+    @Test
+    public void converts_cartesian_to_cartesian() {
+        CartesianPoint cartesianPoint = new CartesianPoint(20, 30);
+
+        CartesianPoint convertedPoint = pointConverter.toCartesianPoint(cartesianPoint);
+        
+        assertThat(convertedPoint, is(cartesianPoint));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void throws_if_unrecognised_point_type() {
+        pointConverter.toPolarPoint(new Point() {
+
+            public double distanceTo(Point other) {
+                return 0;
+            }
+
+            public CartesianPoint asCartesianPoint() {
+                return null;
+            }
+        });       
     }
 
 }

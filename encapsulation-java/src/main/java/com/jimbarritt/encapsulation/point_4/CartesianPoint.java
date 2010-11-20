@@ -3,6 +3,9 @@ package com.jimbarritt.encapsulation.point_4;
 import static java.lang.Math.*;
 import static java.lang.String.*;
 
+/**
+ * http://mathworld.wolfram.com/CartesianCoordinates.html
+ */
 public class CartesianPoint implements Point {
 
     private final int x;
