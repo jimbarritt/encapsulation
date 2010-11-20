@@ -1,34 +1,20 @@
 package com.jimbarritt.encapsulation.point_5;
 
 public class PointConverter {
+    private final ToCartesianPointVisitor toCartesianPointVisitor = new ToCartesianPointVisitor();
+    private final ToPolarPointVisitor toPolarPointVisitor = new ToPolarPointVisitor();
 
     public PolarPoint toPolarPoint(Point point) {
-        ToPolarPointVisitor toPolarPointVisitor = new ToPolarPointVisitor();
         point.accept(toPolarPointVisitor);
         return toPolarPointVisitor.convertedPoint();        
     }
 
     public CartesianPoint toCartesianPoint(Point point) {
-        if (point instanceof CartesianPoint) {
-            return (CartesianPoint) point;
-        }
+        point.accept(toCartesianPointVisitor);
+        return toCartesianPointVisitor.convertedPoint();
+    }    
 
-        if (point instanceof PolarPoint) {
-            return toCartesian((PolarPoint)point);
-        }
-        throw new UnrecognisedPointTypeException(point);
-    }
-
-    private CartesianPoint toCartesian(PolarPoint polarPoint) {
-        return polarPoint.asCartesianPoint();
-    }
-
-    private PolarPoint toPolar(CartesianPoint cartesianPoint) {
-        return cartesianPoint.asPolarPoint();
-    }
-
-
-    private class ToPolarPointVisitor extends PointVisitor {
+    private static class ToPolarPointVisitor extends PointVisitor {
         PolarPoint convertedPoint;
 
         @Override public void visit(CartesianPoint cartesianPoint) {
@@ -42,5 +28,22 @@ public class PointConverter {
         public PolarPoint convertedPoint() {
             return convertedPoint;
         }
+    }
+
+    private static class ToCartesianPointVisitor extends PointVisitor {
+        CartesianPoint convertedPoint;
+
+        @Override public void visit(CartesianPoint cartesianPoint) {
+            convertedPoint = cartesianPoint;
+        }
+
+        @Override public void visit(PolarPoint polarPoint) {
+            convertedPoint = polarPoint.asCartesianPoint();
+        }
+
+        public CartesianPoint convertedPoint() {
+            return convertedPoint;
+        }
+
     }
 }

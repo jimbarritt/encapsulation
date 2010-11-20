@@ -5,5 +5,5 @@ public interface Point {
 
     CartesianPoint asCartesianPoint();
 
-    void accept(PointVisitor pointVisitor);
+    PointVisitor accept(PointVisitor pointVisitor);
 }

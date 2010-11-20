@@ -60,24 +60,5 @@ public class PointConverterTest {
         CartesianPoint expectedPoint = new CartesianPoint(20, 30);
         assertThat(convertedPoint, is(expectedPoint));
     }
-
-    @Test(expected = UnrecognisedPointTypeException.class)
-    public void throws_if_unrecognised_type_when_converting_to_cartesian() {
-        pointConverter.toCartesianPoint(new FakePoint());
-    }    
-
-    private static class FakePoint implements Point {
-
-        public double distanceTo(Point other) {
-            return 0;
-        }
-
-        public CartesianPoint asCartesianPoint() {
-            return null;
-        }
-
-        public void accept(PointVisitor pointVisitor) {
-
-        }
-    }
+    
 }
