@@ -9,8 +9,10 @@ import static java.lang.String.*;
  */
 public class PolarPoint implements Point {
 
-    final Radians theta;
-    final double r;
+    private final Radians theta;
+    private final double r;
+
+    private final PointConverter pointConverter;
 
     public PolarPoint(double theta, double r) {
         this(radians(theta), r);
@@ -19,6 +21,7 @@ public class PolarPoint implements Point {
     public PolarPoint(Radians theta, double r) {
         this.theta = theta;
         this.r = r;
+        this.pointConverter = new PointConverter();
     }
 
     public void accept(PointVisitor pointVisitor) {
@@ -26,8 +29,8 @@ public class PolarPoint implements Point {
     }
 
     public double distanceTo(Point other) {
-        CartesianPoint thisPoint = asCartesianPoint();
-        return thisPoint.distanceTo(other);
+        return pointConverter.asCartesianPoint(this)
+                .distanceTo(pointConverter.asCartesianPoint(other));
     }
 
     public boolean isEqualTo(PolarPoint other, CalculationPrecision precision) {
