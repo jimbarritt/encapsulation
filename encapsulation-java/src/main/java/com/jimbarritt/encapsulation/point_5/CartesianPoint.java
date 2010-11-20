@@ -11,13 +11,16 @@ public class CartesianPoint implements Point {
     private final int x;
     private final int y;
 
+    private final PointConverter pointConverter;
+
     public CartesianPoint(int x, int y) {
         this.x = x;
         this.y = y;
+        this.pointConverter = new PointConverter();
     }
 
     public double distanceTo(Point other) {
-        CartesianPoint cartesianOther = other.asCartesianPoint();
+        CartesianPoint cartesianOther = pointConverter.asCartesianPoint(other);
         int a = x - cartesianOther.x;
         int b = y - cartesianOther.y;
         return calculateHypotenuseFor(a, b);

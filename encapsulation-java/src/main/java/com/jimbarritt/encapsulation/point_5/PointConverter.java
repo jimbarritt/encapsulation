@@ -4,12 +4,12 @@ public class PointConverter {
     private final ToCartesianPointVisitor toCartesianPointVisitor = new ToCartesianPointVisitor();
     private final ToPolarPointVisitor toPolarPointVisitor = new ToPolarPointVisitor();
 
-    public PolarPoint toPolarPoint(Point point) {
+    public PolarPoint asPolarPoint(Point point) {
         point.accept(toPolarPointVisitor);
         return toPolarPointVisitor.convertedPoint();        
     }
 
-    public CartesianPoint toCartesianPoint(Point point) {
+    public CartesianPoint asCartesianPoint(Point point) {
         point.accept(toCartesianPointVisitor);
         return toCartesianPointVisitor.convertedPoint();
     }    

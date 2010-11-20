@@ -23,7 +23,7 @@ public class PointConverterTest {
     public void converts_polar_to_polar() {
         PolarPoint polarPoint = new PolarPoint(0.9827937, 36.0555128);
 
-        PolarPoint convertedPoint = pointConverter.toPolarPoint(polarPoint);
+        PolarPoint convertedPoint = pointConverter.asPolarPoint(polarPoint);
 
         assertThat(convertedPoint, is(polarPoint));
     }
@@ -32,7 +32,7 @@ public class PointConverterTest {
     public void converts_cartesian_to_polar_points() {
         CartesianPoint cartesianPoint = new CartesianPoint(20, 30);
 
-        PolarPoint polarPoint = pointConverter.toPolarPoint(cartesianPoint);
+        PolarPoint polarPoint = pointConverter.asPolarPoint(cartesianPoint);
 
         PolarPoint expectedPolarPoint = new PolarPoint(0.9827937, 36.0555128);
         assertThat(format("\nExpected: %s\nActual  : %s", expectedPolarPoint, polarPoint),
@@ -43,7 +43,7 @@ public class PointConverterTest {
     public void converts_cartesian_to_cartesian() {
         CartesianPoint cartesianPoint = new CartesianPoint(20, 30);
 
-        CartesianPoint convertedPoint = pointConverter.toCartesianPoint(cartesianPoint);
+        CartesianPoint convertedPoint = pointConverter.asCartesianPoint(cartesianPoint);
 
         assertThat(convertedPoint, is(cartesianPoint));
     }
@@ -55,7 +55,7 @@ public class PointConverterTest {
     public void converts_polar_to_cartesian() {
         PolarPoint polarPoint = new PolarPoint(0.9827937, 36.0555128);
 
-        CartesianPoint convertedPoint = pointConverter.toCartesianPoint(polarPoint);
+        CartesianPoint convertedPoint = pointConverter.asCartesianPoint(polarPoint);
 
         CartesianPoint expectedPoint = new CartesianPoint(20, 30);
         assertThat(convertedPoint, is(expectedPoint));
