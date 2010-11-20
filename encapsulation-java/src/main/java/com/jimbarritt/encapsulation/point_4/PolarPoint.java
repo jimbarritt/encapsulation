@@ -4,18 +4,21 @@ import static com.jimbarritt.encapsulation.point_4.Radians.*;
 import static java.lang.Math.*;
 import static java.lang.String.*;
 
+/**
+ * http://mathworld.wolfram.com/PolarCoordinates.html
+ */
 public class PolarPoint implements Point {
 
     final Radians theta;
-    final double rho;
+    final double r;
 
-    public PolarPoint(Radians theta, double rho) {
-        this.theta = theta;
-        this.rho = rho;
+    public PolarPoint(double theta, double r) {
+        this(radians(theta), r);
     }
 
-    public PolarPoint(double theta, double rho) {
-        this(radians(theta), rho);
+    public PolarPoint(Radians theta, double r) {
+        this.theta = theta;
+        this.r = r;
     }
 
     public double distanceTo(Point other) {
@@ -24,12 +27,12 @@ public class PolarPoint implements Point {
     }
 
     public boolean isEqualTo(PolarPoint other, CalculationPrecision precision) {
-        return precision.isEqual(rho, other.rho())
+        return precision.isEqual(r, other.rho())
                 && theta.isEqual(other.theta(), precision);
     }
 
     public double rho() {
-        return rho;
+        return r;
     }
 
     public Radians theta() {
@@ -37,12 +40,12 @@ public class PolarPoint implements Point {
     }
 
     public CartesianPoint asCartesianPoint() {
-        int x = (int)round((rho * theta.cos()));
-        int y = (int)round(rho * theta.sin());
+        int x = (int)round((r * theta.cos()));
+        int y = (int)round(r * theta.sin());
         return new CartesianPoint(x, y);
     }
 
     public String toString() {
-        return format("theta=%s, rho=%.7f", theta, rho);
+        return format("theta=%s, rho=%.7f", theta, r);
     }
 }

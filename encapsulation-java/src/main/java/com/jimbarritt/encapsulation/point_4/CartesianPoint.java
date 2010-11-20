@@ -26,8 +26,8 @@ public class CartesianPoint implements Point {
      */
     public PolarPoint asPolarPoint() {
         double theta = atan2(y , x);
-        double rho = calculateHypotenuseFor(x, y);
-        return new PolarPoint(theta, rho);
+        double r = calculateHypotenuseFor(x, y);
+        return new PolarPoint(theta, r);
     }
 
     public CartesianPoint asCartesianPoint() {
