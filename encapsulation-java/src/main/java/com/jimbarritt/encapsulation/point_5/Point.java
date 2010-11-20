@@ -4,4 +4,6 @@ public interface Point {
     double distanceTo(Point other);
 
     CartesianPoint asCartesianPoint();
+
+    void accept(PointVisitor pointVisitor);
 }

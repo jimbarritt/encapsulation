@@ -64,12 +64,7 @@ public class PointConverterTest {
     @Test(expected = UnrecognisedPointTypeException.class)
     public void throws_if_unrecognised_type_when_converting_to_cartesian() {
         pointConverter.toCartesianPoint(new FakePoint());
-    }
-
-    @Test(expected = UnrecognisedPointTypeException.class)
-    public void throws_if_unrecognised_point_type_when_converting_to_polar() {
-        pointConverter.toPolarPoint(new FakePoint());
-    }
+    }    
 
     private static class FakePoint implements Point {
 
@@ -79,6 +74,10 @@ public class PointConverterTest {
 
         public CartesianPoint asCartesianPoint() {
             return null;
+        }
+
+        public void accept(PointVisitor pointVisitor) {
+
         }
     }
 }

@@ -23,6 +23,10 @@ public class CartesianPoint implements Point {
         return calculateHypotenuseFor(a, b);
     }
 
+    public void accept(PointVisitor pointVisitor) {
+        pointVisitor.visit(this);
+    }
+
     /**
      * r = √ (x^2 + y^2)
      * θ = atan( y / x )

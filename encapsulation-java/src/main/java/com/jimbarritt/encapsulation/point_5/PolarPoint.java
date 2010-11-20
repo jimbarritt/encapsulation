@@ -21,6 +21,10 @@ public class PolarPoint implements Point {
         this.r = r;
     }
 
+    public void accept(PointVisitor pointVisitor) {
+        pointVisitor.visit(this);
+    }
+
     public double distanceTo(Point other) {
         CartesianPoint thisPoint = asCartesianPoint();
         return thisPoint.distanceTo(other);
@@ -37,6 +41,7 @@ public class PolarPoint implements Point {
         int y = (int)round(r * theta.sin());
         return new CartesianPoint(x, y);
     }
+
 
     public String toString() {
         return format("theta=%s, rho=%.7f", theta, r);
