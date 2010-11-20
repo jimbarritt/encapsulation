@@ -1,8 +1,5 @@
 package com.jimbarritt.encapsulation.point_5;
 
-import com.jimbarritt.encapsulation.point_4.CartesianPoint;
-import com.jimbarritt.encapsulation.point_4.Point;
-import com.jimbarritt.encapsulation.point_4.PolarPoint;
 import org.junit.*;
 
 import static junit.framework.Assert.*;
