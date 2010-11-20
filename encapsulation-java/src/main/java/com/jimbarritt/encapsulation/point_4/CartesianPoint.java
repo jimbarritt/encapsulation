@@ -20,6 +20,10 @@ public class CartesianPoint implements Point {
         return sqrt(pow(a, 2) + pow(b, 2));
     }
 
+    public PolarPoint asPolarPoint() {
+        return null;
+    }
+
     public CartesianPoint asCartesianPoint() {
         return this;
     }
@@ -27,4 +31,6 @@ public class CartesianPoint implements Point {
     public String toString() {
         return format("x=%d, y=%d", x, y);
     }
+
+
 }

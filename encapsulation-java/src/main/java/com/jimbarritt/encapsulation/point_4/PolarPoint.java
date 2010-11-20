@@ -5,11 +5,11 @@ import static java.lang.Math.*;
 public class PolarPoint implements Point {
 
     final double theta;
-    final double r;
+    final double rho;
 
-    public PolarPoint(double theta, double r) {
+    public PolarPoint(double theta, double rho) {
         this.theta = theta;
-        this.r = r;
+        this.rho = rho;
     }
 
     public double distanceTo(Point other) {
@@ -17,9 +17,25 @@ public class PolarPoint implements Point {
         return thisPoint.distanceTo(other);
     }
 
+    public boolean isEqualTo(PolarPoint other, CalculationPrecision precision) {
+        return precision.isEqual(this.rho, other.rho()) 
+            && precision.isEqual(this.theta, other.theta());
+    }
+
+    public double rho() {
+        return rho;
+    }
+
+    private double theta() {
+        return theta;
+    }
+
     public CartesianPoint asCartesianPoint() {
-        int x = (int)round((r * cos(theta)));
-        int y = (int)round(r * sin(theta));
+        int x = (int)round((rho * cos(theta)));
+        int y = (int)round(rho * sin(theta));
         return new CartesianPoint(x, y);
     }
+
+
+
 }

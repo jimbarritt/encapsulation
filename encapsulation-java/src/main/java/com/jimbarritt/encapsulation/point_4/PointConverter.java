@@ -14,6 +14,6 @@ public class PointConverter {
     }
 
     private PolarPoint toPolar(CartesianPoint cartesianPoint) {
-        return null;
+        return cartesianPoint.asPolarPoint();      
     }
 }
