@@ -1,15 +1,21 @@
 package com.jimbarritt.encapsulation.point_4;
 
+import static com.jimbarritt.encapsulation.point_4.Radians.*;
 import static java.lang.Math.*;
+import static java.lang.String.*;
 
 public class PolarPoint implements Point {
 
-    final double theta;
+    final Radians theta;
     final double rho;
 
-    public PolarPoint(double theta, double rho) {
+    public PolarPoint(Radians theta, double rho) {
         this.theta = theta;
         this.rho = rho;
+    }
+
+    public PolarPoint(double theta, double rho) {
+        this(radians(theta), rho);
     }
 
     public double distanceTo(Point other) {
@@ -18,24 +24,25 @@ public class PolarPoint implements Point {
     }
 
     public boolean isEqualTo(PolarPoint other, CalculationPrecision precision) {
-        return precision.isEqual(this.rho, other.rho()) 
-            && precision.isEqual(this.theta, other.theta());
+        return precision.isEqual(rho, other.rho())
+                && theta.isEqual(other.theta(), precision);
     }
 
     public double rho() {
         return rho;
     }
 
-    private double theta() {
+    public Radians theta() {
         return theta;
     }
 
     public CartesianPoint asCartesianPoint() {
-        int x = (int)round((rho * cos(theta)));
-        int y = (int)round(rho * sin(theta));
+        int x = (int)round((rho * theta.cos()));
+        int y = (int)round(rho * theta.sin());
         return new CartesianPoint(x, y);
     }
 
-
-
+    public String toString() {
+        return format("theta=%s, rho=%.7f", theta, rho);
+    }
 }

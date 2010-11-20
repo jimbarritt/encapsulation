@@ -17,11 +17,17 @@ public class CartesianPoint implements Point {
         CartesianPoint cartesianOther = other.asCartesianPoint();
         int a = x - cartesianOther.x;
         int b = y - cartesianOther.y;
-        return sqrt(pow(a, 2) + pow(b, 2));
+        return calculateHypotenuseFor(a, b);
     }
 
+    /**
+     * r = √ (x^2 + y^2)
+     * θ = atan( y / x )
+     */
     public PolarPoint asPolarPoint() {
-        return null;
+        double theta = atan2(y , x);
+        double rho = calculateHypotenuseFor(x, y);
+        return new PolarPoint(theta, rho);
     }
 
     public CartesianPoint asCartesianPoint() {
@@ -32,5 +38,8 @@ public class CartesianPoint implements Point {
         return format("x=%d, y=%d", x, y);
     }
 
+    private static double calculateHypotenuseFor(int a, int b) {
+        return sqrt(pow(a, 2) + pow(b, 2));
+    }
 
 }
