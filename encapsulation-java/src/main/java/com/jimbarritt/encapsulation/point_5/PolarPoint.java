@@ -31,7 +31,7 @@ public class PolarPoint implements Point {
 
     public double distanceTo(Point other) {
         return pointConverter.asCartesianPoint(this)
-                .distanceTo(pointConverter.asCartesianPoint(other));
+                             .distanceTo(pointConverter.asCartesianPoint(other));
     }
 
     public boolean isEqualTo(PolarPoint other, CalculationPrecision precision) {
