@@ -9,8 +9,8 @@ import static java.lang.String.*;
  */
 public class PolarPoint implements Point {
 
-    final Radians theta;
-    final double r;
+    private final Radians theta;
+    private final double r;
 
     public PolarPoint(double theta, double r) {
         this(radians(theta), r);

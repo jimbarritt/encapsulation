@@ -1,13 +1,11 @@
 package com.jimbarritt.encapsulation.point_3;
 
-import static java.lang.Math.cos;
-import static java.lang.Math.round;
-import static java.lang.Math.sin;
+import static java.lang.Math.*;
 
 public class PolarPoint implements Point {
 
-    final double theta;
-    final double r;
+    private final double theta;
+    private final double r;
 
     public PolarPoint(double theta, double r) {
         this.theta = theta;
