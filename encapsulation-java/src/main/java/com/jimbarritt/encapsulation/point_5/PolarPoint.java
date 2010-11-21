@@ -33,7 +33,7 @@ public class PolarPoint implements Point {
         return pointConverter.asCartesianPoint(this)
                              .distanceTo(pointConverter.asCartesianPoint(other));
     }
-
+       
     public boolean isEqualTo(PolarPoint other, CalculationPrecision precision) {
         return precision.isEqual(r, other.r)
                 && theta.isEqual(other.theta, precision);
