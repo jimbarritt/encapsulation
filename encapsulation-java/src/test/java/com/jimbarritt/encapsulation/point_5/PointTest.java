@@ -11,7 +11,6 @@ public class PointTest {
      * p2 = {20, 30}
      * for p2, theta=0.9827937, r=36.0555128
      *
-     * distance is = 14.14214
      */
     @Test
     public void calculates_the_distance_between_two_points_of_different_types() {
