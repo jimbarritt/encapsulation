@@ -9,9 +9,6 @@ import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.*;
 
-/**
- * p1 == {20, 30} == {theta=0.9827937, r=36.0555128}
- */
 public class PointConverterTest {
 
     private PointConverter pointConverter;
