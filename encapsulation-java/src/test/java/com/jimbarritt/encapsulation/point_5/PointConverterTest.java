@@ -1,13 +1,13 @@
 package com.jimbarritt.encapsulation.point_5;
 
 import org.junit.*;
+import org.mockito.Mock;
 
-import static com.jimbarritt.encapsulation.point_5.CalculationPrecision.*;
-import static java.lang.String.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.*;
+import static org.mockito.MockitoAnnotations.*;
 
 /**
  * p1 == {20, 30} == {theta=0.9827937, r=36.0555128}
@@ -15,66 +15,54 @@ import static org.mockito.Mockito.*;
 public class PointConverterTest {
 
     private PointConverter pointConverter;
+    @Mock private PolarPoint polarPoint;
+    @Mock private PointConversion pointConversion;
+    @Mock private CartesianPoint cartesianPoint;
 
     @Before
     public void setup() {
+        initMocks(this);
         pointConverter = new PointConverter();
     }
 
     @Test
     public void converts_polar_to_polar() {
-        PolarPoint polarPoint = new PolarPoint(0.9827937, 36.0555128);
-
-        PolarPoint convertedPoint = pointConverter.asPolarPoint(polarPoint);
-
-        assertThat(convertedPoint, is(polarPoint));
-    }
-
-    @Test
-    public void converts_polar_to_polar_mocked() {
-        PolarPoint polarPoint = mock(PolarPoint.class);
-        PointConversion pointConversion = mock(PointConversion.class);
-
         when(polarPoint.accept(isA(PointConversion.class))).thenReturn(pointConversion);
         when(pointConversion.convertedPoint()).thenReturn(polarPoint);
 
         PolarPoint convertedPoint = pointConverter.asPolarPoint(polarPoint);
 
-        assertThat(convertedPoint, is(polarPoint));
+        assertThat(convertedPoint, is(sameInstance(polarPoint)));
     }
 
-    /**
-     * p1 == {20, 30} == {theta=0.9827937, r=36.0555128}
-     */
     @Test
     public void converts_polar_to_cartesian() {
-        PolarPoint polarPoint = new PolarPoint(0.9827937, 36.0555128);
+        when(polarPoint.accept(isA(PointConversion.class))).thenReturn(pointConversion);
+        when(pointConversion.convertedPoint()).thenReturn(cartesianPoint);
 
         CartesianPoint convertedPoint = pointConverter.asCartesianPoint(polarPoint);
 
-        CartesianPoint expectedPoint = new CartesianPoint(20, 30);
-        assertThat(convertedPoint, is(expectedPoint));
+        assertThat(convertedPoint, is(sameInstance(cartesianPoint)));
     }
-
 
     @Test
     public void converts_cartesian_to_cartesian() {
-        CartesianPoint cartesianPoint = new CartesianPoint(20, 30);
+        when(cartesianPoint.accept(isA(PointConversion.class))).thenReturn(pointConversion);
+        when(pointConversion.convertedPoint()).thenReturn(cartesianPoint);
 
         CartesianPoint convertedPoint = pointConverter.asCartesianPoint(cartesianPoint);
 
-        assertThat(convertedPoint, is(cartesianPoint));
+        assertThat(convertedPoint, is(sameInstance(cartesianPoint)));
     }
 
     @Test
     public void converts_cartesian_to_polar_points() {
-        CartesianPoint cartesianPoint = new CartesianPoint(20, 30);
+        when(cartesianPoint.accept(isA(PointConversion.class))).thenReturn(pointConversion);
+        when(pointConversion.convertedPoint()).thenReturn(polarPoint);
 
-        PolarPoint polarPoint = pointConverter.asPolarPoint(cartesianPoint);
+        PolarPoint convertedPoint = pointConverter.asPolarPoint(cartesianPoint);
 
-        PolarPoint expectedPolarPoint = new PolarPoint(0.9827937, 36.0555128);
-        assertThat(format("\nExpected: %s\nActual  : %s", expectedPolarPoint, polarPoint),
-                polarPoint.isEqualTo(expectedPolarPoint, sixDecimalPlaces));
+        assertThat(convertedPoint, is(sameInstance(polarPoint)));
     }
 
 }
