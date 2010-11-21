@@ -1,17 +1,17 @@
 package com.jimbarritt.encapsulation.point_5;
 
+import static com.jimbarritt.encapsulation.point_5.PointConversion.*;
+
 public class PointConverter {
-    private final ToCartesianPointConversion toCartesianPointVisitor = new ToCartesianPointConversion();
-    private final ToPolarPointConversion toPolarPointVisitor = new ToPolarPointConversion();
+    private final ToCartesianPointConversion toCartesianPoint = new ToCartesianPointConversion();
+    private final ToPolarPointConversion toPolarPoint = new ToPolarPointConversion();
 
     public PolarPoint asPolarPoint(Point point) {
-        point.accept(toPolarPointVisitor);
-        return toPolarPointVisitor.convertedPoint();        
+        return convertPoint(point, toPolarPoint);
     }
 
     public CartesianPoint asCartesianPoint(Point point) {
-        point.accept(toCartesianPointVisitor);
-        return toCartesianPointVisitor.convertedPoint();
+        return convertPoint(point, toCartesianPoint);
     }
     
     private static class ToPolarPointConversion extends PointConversion<PolarPoint> {

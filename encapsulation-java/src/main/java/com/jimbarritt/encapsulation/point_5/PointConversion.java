@@ -7,11 +7,14 @@ public abstract class PointConversion<T extends Point> {
     private T convertedPoint;
 
     public abstract void convert(CartesianPoint cartesianPoint);
-
     public abstract void convert(PolarPoint polarPoint);
 
     @SuppressWarnings("unchecked")
-    public final T convertedPoint() {
+    public static <T extends Point> T convertPoint(Point point, PointConversion<T> conversion) {
+        return (T)point.accept(conversion).convertedPoint();
+    }
+
+    public T convertedPoint() {
         return convertedPoint;
     }
 

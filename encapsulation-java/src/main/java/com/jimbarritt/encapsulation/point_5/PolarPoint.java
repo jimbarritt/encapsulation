@@ -24,8 +24,9 @@ public class PolarPoint implements Point {
         this.pointConverter = new PointConverter();
     }
 
-    public void accept(PointConversion pointConversion) {
+    public PointConversion accept(PointConversion pointConversion) {
         pointConversion.convert(this);
+        return pointConversion;
     }
 
     public double distanceTo(Point other) {
