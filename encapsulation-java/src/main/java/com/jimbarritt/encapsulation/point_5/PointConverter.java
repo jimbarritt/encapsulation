@@ -12,38 +12,37 @@ public class PointConverter {
     public CartesianPoint asCartesianPoint(Point point) {
         point.accept(toCartesianPointVisitor);
         return toCartesianPointVisitor.convertedPoint();
-    }    
+    }
 
-    private static class ToPolarPointVisitor extends PointVisitor {
-        PolarPoint convertedPoint;
+    private static abstract class AbstractPointConversion<T> extends PointVisitor {
+        private T convertedPoint;
 
-        @Override public void visit(CartesianPoint cartesianPoint) {
-            convertedPoint = cartesianPoint.asPolarPoint();
+        public void recordResultOfConversion(T convertedPoint) {
+            this.convertedPoint = convertedPoint;
         }
 
-        @Override public void visit(PolarPoint polarPoint) {
-            convertedPoint = polarPoint;
-        }
-
-        public PolarPoint convertedPoint() {
+        public T convertedPoint() {
             return convertedPoint;
         }
     }
 
-    private static class ToCartesianPointVisitor extends PointVisitor {
-        CartesianPoint convertedPoint;
-
+    private static class ToPolarPointVisitor extends AbstractPointConversion<PolarPoint> {
         @Override public void visit(CartesianPoint cartesianPoint) {
-            convertedPoint = cartesianPoint;
+            super.recordResultOfConversion(cartesianPoint.asPolarPoint());
         }
 
         @Override public void visit(PolarPoint polarPoint) {
-            convertedPoint = polarPoint.asCartesianPoint();
+            super.recordResultOfConversion(polarPoint);
+        }
+    }
+
+    private static class ToCartesianPointVisitor extends AbstractPointConversion<CartesianPoint> {
+        @Override public void visit(CartesianPoint cartesianPoint) {
+            super.recordResultOfConversion(cartesianPoint);
         }
 
-        public CartesianPoint convertedPoint() {
-            return convertedPoint;
+        @Override public void visit(PolarPoint polarPoint) {
+            super.recordResultOfConversion(polarPoint.asCartesianPoint());
         }
-
     }
 }
