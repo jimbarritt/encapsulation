@@ -20,7 +20,6 @@ public class CartesianPointTest {
 
     /**
      * p1 == {20, 30} == {theta=0.9827937, r=36.0555128}
-     * todo : replace this with an injected mock.
      */
     @Test
     public void converts_to_polar_point() {
