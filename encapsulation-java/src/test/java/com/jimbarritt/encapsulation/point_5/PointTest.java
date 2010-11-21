@@ -14,7 +14,7 @@ public class PointTest {
      * distance is = 14.14214
      */
     @Test
-    public void calculates_the_distance_between_two_points() {
+    public void calculates_the_distance_between_two_points_of_different_types() {
         Point p1 = new CartesianPoint(10, 20);
         Point p2 = new CartesianPoint(20, 30);
         Point p3 = new PolarPoint(0.9827937, 36.0555128);
