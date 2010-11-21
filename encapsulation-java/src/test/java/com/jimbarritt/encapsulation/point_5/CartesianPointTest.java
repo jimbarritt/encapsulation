@@ -14,8 +14,10 @@ public class CartesianPointTest {
         Point p2 = new CartesianPoint(20, 30);
 
         double distanceP1_P2 = p1.distanceTo(p2);
-     
+        double distanceP2_P1= p1.distanceTo(p2);
+
         assertEquals(14.14214, distanceP1_P2, 0.0001);
+        assertEquals(14.14214, distanceP2_P1, 0.0001);
     }
 
     /**
