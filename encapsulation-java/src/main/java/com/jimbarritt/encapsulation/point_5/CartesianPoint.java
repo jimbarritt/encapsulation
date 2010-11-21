@@ -26,8 +26,8 @@ public class CartesianPoint implements Point {
         return calculateHypotenuseFor(a, b);
     }
 
-    public void accept(PointVisitor pointVisitor) {
-        pointVisitor.visit(this);
+    public void accept(PointConversion pointConversion) {
+        pointConversion.convert(this);
     }
 
     /**

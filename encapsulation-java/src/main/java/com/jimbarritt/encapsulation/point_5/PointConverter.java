@@ -1,8 +1,8 @@
 package com.jimbarritt.encapsulation.point_5;
 
 public class PointConverter {
-    private final ToCartesianPointVisitor toCartesianPointVisitor = new ToCartesianPointVisitor();
-    private final ToPolarPointVisitor toPolarPointVisitor = new ToPolarPointVisitor();
+    private final ToCartesianPointConversion toCartesianPointVisitor = new ToCartesianPointConversion();
+    private final ToPolarPointConversion toPolarPointVisitor = new ToPolarPointConversion();
 
     public PolarPoint asPolarPoint(Point point) {
         point.accept(toPolarPointVisitor);
@@ -13,35 +13,23 @@ public class PointConverter {
         point.accept(toCartesianPointVisitor);
         return toCartesianPointVisitor.convertedPoint();
     }
-
-    private static abstract class AbstractPointConversion<T> extends PointVisitor {
-        private T convertedPoint;
-
-        public void recordResultOfConversion(T convertedPoint) {
-            this.convertedPoint = convertedPoint;
-        }
-
-        public T convertedPoint() {
-            return convertedPoint;
-        }
-    }
-
-    private static class ToPolarPointVisitor extends AbstractPointConversion<PolarPoint> {
-        @Override public void visit(CartesianPoint cartesianPoint) {
+    
+    private static class ToPolarPointConversion extends PointConversion<PolarPoint> {
+        @Override public void convert(CartesianPoint cartesianPoint) {
             super.recordResultOfConversion(cartesianPoint.asPolarPoint());
         }
 
-        @Override public void visit(PolarPoint polarPoint) {
+        @Override public void convert(PolarPoint polarPoint) {
             super.recordResultOfConversion(polarPoint);
         }
     }
 
-    private static class ToCartesianPointVisitor extends AbstractPointConversion<CartesianPoint> {
-        @Override public void visit(CartesianPoint cartesianPoint) {
+    private static class ToCartesianPointConversion extends PointConversion<CartesianPoint> {
+        @Override public void convert(CartesianPoint cartesianPoint) {
             super.recordResultOfConversion(cartesianPoint);
         }
 
-        @Override public void visit(PolarPoint polarPoint) {
+        @Override public void convert(PolarPoint polarPoint) {
             super.recordResultOfConversion(polarPoint.asCartesianPoint());
         }
     }
