@@ -30,6 +30,10 @@ p1 <- c(10, 20)
 p2 <- c(20, 30)
 distance_cartesian(p1, p2)
 
-p3 <- cartesian_to_polar(p2)
+p3 <- cartesian_to_polar(p1)
 p3
+p4 <- cartesian_to_polar(p2)
+p4
+
 polar_to_cartesian(p3)
+atan(30 / 20)
