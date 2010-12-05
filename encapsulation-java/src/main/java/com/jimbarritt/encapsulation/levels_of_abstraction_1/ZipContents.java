@@ -19,16 +19,15 @@ public class ZipContents {
         this.sourceFile = sourceFile;
     }
 
-
-    public List<ZipContentsEntry> entries() {
-        return entries;
-    }
-
     public void open() throws IOException {
         if (log.isInfoEnabled()) {
             log.info("Opening file: " + sourceFile.getAbsolutePath());
         }
-        listEntries();
+        readEntries();
+    }
+
+    public List<ZipContentsEntry> entries() {
+        return entries;
     }
 
     public void close() throws IOException {
@@ -40,35 +39,44 @@ public class ZipContents {
         }
     }
 
-    private void listEntries() throws IOException {
+    private void readEntries() throws IOException {
         entries = new ArrayList<ZipContentsEntry>();
         zipfile = new ZipFile(sourceFile);
 
-        Enumeration entries = zipfile.entries();
-        while (entries.hasMoreElements()) {
-            ZipEntry entry = (ZipEntry) entries.nextElement();
-            if (!entry.isDirectory()) {
-                addEntry(entry);
+        Enumeration zipFileEntries = zipfile.entries();
+        while (zipFileEntries.hasMoreElements()) {
+            ZipEntry zipEntry = (ZipEntry) zipFileEntries.nextElement();
+            if (!zipEntry.isDirectory()) {
+                entries.add(createEntryFrom(zipEntry));
             }
         }
     }
 
-    private void addEntry(ZipEntry entry) {
+    private static ZipContentsEntry createEntryFrom(ZipEntry entry) {
         String entryPath = entry.getName();
+
+        String name = getFilenameFrom(entryPath);
+        String type = getTypeFrom(name);
+        String directory = getDirectoryFrom(entryPath);
+
+        return new ZipContentsEntry(name, type, directory);
+    }
+
+    private static String getFilenameFrom(String entryPath) {
         int indexOfLastSlash = entryPath.lastIndexOf("/");
-
         String name = (indexOfLastSlash == -1) ? entryPath : entryPath.substring(indexOfLastSlash);
-
-        int indexDot = name.lastIndexOf(".");
-
-        String type = name.substring(indexDot + 1);
         int startIndex = (indexOfLastSlash == -1) ? 0 : 1;
-        name = name.substring(startIndex, name.length());
+        return name.substring(startIndex, name.length());
+    }
 
-        String directory = (indexOfLastSlash == -1) ? "/" : "/" + entryPath.substring(0, indexOfLastSlash);
+    private static String getDirectoryFrom(String entryPath) {
+        int indexOfLastSlash = entryPath.lastIndexOf("/");
+        return (indexOfLastSlash == -1) ? "/" : "/" + entryPath.substring(0, indexOfLastSlash);
+    }
 
-        ZipContentsEntry contentEntry = new ZipContentsEntry(name, type, directory);
-        this.entries.add(contentEntry);
+    private static String getTypeFrom(String name) {
+        int indexDot = name.lastIndexOf(".");
+        return name.substring(indexDot + 1);
     }
 
 }

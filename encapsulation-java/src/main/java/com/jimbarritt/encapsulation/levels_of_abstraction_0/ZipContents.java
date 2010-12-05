@@ -19,17 +19,16 @@ public class ZipContents {
         this.sourceFile = sourceFile;
     }
 
-
-    public List<ZipContentsEntry> entries() {
-        return entries;
-    }
-
     public void open() throws IOException {
         if (log.isInfoEnabled()) {
             log.info("Opening file: " + sourceFile.getAbsolutePath());
         }
-        listEntries();
+        readEntries();
     }
+
+    public List<ZipContentsEntry> entries() {
+        return entries;
+    }    
 
     public void close() throws IOException {
         if (log.isInfoEnabled()) {
@@ -40,7 +39,7 @@ public class ZipContents {
         }
     }
 
-    private void listEntries() throws IOException {
+    private void readEntries() throws IOException {
         entries = new ArrayList<ZipContentsEntry>();
 
         zipfile = new ZipFile(sourceFile);
