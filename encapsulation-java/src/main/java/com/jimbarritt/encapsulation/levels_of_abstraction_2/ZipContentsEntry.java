@@ -1,4 +1,4 @@
-package com.jimbarritt.encapsulation.levels_of_abstraction_1;
+package com.jimbarritt.encapsulation.levels_of_abstraction_2;
 
 public class ZipContentsEntry {
 

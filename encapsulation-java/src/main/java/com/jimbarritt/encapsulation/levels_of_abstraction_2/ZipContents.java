@@ -1,10 +1,12 @@
-package com.jimbarritt.encapsulation.levels_of_abstraction_1;
+package com.jimbarritt.encapsulation.levels_of_abstraction_2;
 
 import org.apache.log4j.*;
 
 import java.io.*;
 import java.util.*;
 import java.util.zip.*;
+
+import static com.jimbarritt.encapsulation.levels_of_abstraction_2.ZipEntryConversion.*;
 
 public class ZipContents {
     private static final Logger log = Logger.getLogger(ZipContents.class);
@@ -47,36 +49,9 @@ public class ZipContents {
         while (zipFileEntries.hasMoreElements()) {
             ZipEntry zipEntry = (ZipEntry) zipFileEntries.nextElement();
             if (!zipEntry.isDirectory()) {
-                entries.add(createEntryFrom(zipEntry));
+                entries.add(convert(zipEntry).toZipContentsEntry());
             }
         }
-    }
-
-    private static ZipContentsEntry createEntryFrom(ZipEntry entry) {
-        String entryPath = entry.getName();
-
-        String name = extractFilenameFrom(entryPath);
-        String type = extractTypeFrom(name);
-        String directory = extractDirectoryFrom(entryPath);
-
-        return new ZipContentsEntry(name, type, directory);
-    }
-
-    private static String extractFilenameFrom(String entryPath) {
-        int indexOfLastSlash = entryPath.lastIndexOf("/");
-        String filename = (indexOfLastSlash == -1) ? entryPath : entryPath.substring(indexOfLastSlash);
-        int startIndex = (indexOfLastSlash == -1) ? 0 : 1;
-        return filename.substring(startIndex, filename.length());
-    }
-
-    private static String extractDirectoryFrom(String entryPath) {
-        int indexOfLastSlash = entryPath.lastIndexOf("/");
-        return (indexOfLastSlash == -1) ? "/" : "/" + entryPath.substring(0, indexOfLastSlash);
-    }
-
-    private static String extractTypeFrom(String filename) {
-        int indexOfDot = filename.lastIndexOf(".");
-        return filename.substring(indexOfDot + 1);
     }
 
 }

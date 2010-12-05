@@ -2,9 +2,9 @@ package com.jimbarritt.encapsulation.levels_of_abstraction_0;
 
 public class ZipContentsEntry {
 
-    private String name;
-    private String type;
-    private String directory;
+    private final String name;
+    private final String type;
+    private final String directory;
 
     public ZipContentsEntry(String name, String type, String directory) {
         this.name = name;

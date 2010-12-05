@@ -48,16 +48,24 @@ public class ZipContents {
         while (entries.hasMoreElements()) {
             ZipEntry entry = (ZipEntry) entries.nextElement();
             if (!entry.isDirectory()) {
-                String fullName = entry.getName();
-                int index = fullName.lastIndexOf("/");
+                String entryPath = entry.getName();
+                int index = entryPath.lastIndexOf("/");
 
-                String name = (index == -1) ? fullName : fullName.substring(index);
-                String directory = (index == -1) ? "/" : "/" + fullName.substring(0, index);
-                int indexDot = name.lastIndexOf(".");
-                String type = name.substring(indexDot + 1);
+                // Extract the filename
+                String filename = (index == -1) ? entryPath : entryPath.substring(index);
+
+                // Trim off any leading slashes
                 int startIndex = (index == -1) ? 0 : 1;
-                name = name.substring(startIndex, name.length());
-                ZipContentsEntry contentEntry = new ZipContentsEntry(name, type, directory);
+                filename = filename.substring(startIndex, filename.length());
+
+                // Extract file type
+                int indexOfDot = filename.lastIndexOf(".");
+                String type = filename.substring(indexOfDot + 1);
+
+                // Extract the directory
+                String directory = (index == -1) ? "/" : "/" + entryPath.substring(0, index);
+
+                ZipContentsEntry contentEntry = new ZipContentsEntry(filename, type, directory);
                 this.entries.add(contentEntry);
             }
         }
