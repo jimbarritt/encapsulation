@@ -6,7 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../encapsulation-ruby/lib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../encapsulation-ruby/test" isTestSource="true" />
     </content>
-    <orderEntry type="jdk" jdkName="Ruby SDK 1.8.7" jdkType="RUBY_SDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="RModuleSettingsStorage" number="1" string0="$MODULE_DIR$/../../../encapsulation-ruby/lib" />

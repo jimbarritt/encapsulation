@@ -10,7 +10,6 @@ public class ZipContents {
     private ZipFile zipfile;
     private List<ZipContentsEntry> entries = new ArrayList<ZipContentsEntry>();
 
-
     public ZipContents(File sourceFile) {
         this.sourceFile = sourceFile;
     }

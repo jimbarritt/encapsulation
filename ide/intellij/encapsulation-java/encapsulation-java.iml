@@ -6,6 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../encapsulation-java/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../encapsulation-java/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../encapsulation-java/src/test/R" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../encapsulation-java/src/main/resource" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../encapsulation-java/src/test/resource" isTestSource="true" />
     </content>
     <orderEntry type="jdk" jdkName="1.6" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
