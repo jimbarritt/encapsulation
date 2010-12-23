@@ -22,6 +22,7 @@
           <option name="SMART_TABS" value="false" />
           <option name="LABEL_INDENT_SIZE" value="0" />
           <option name="LABEL_INDENT_ABSOLUTE" value="false" />
+          <option name="USE_RELATIVE_INDENTS" value="false" />
         </ADDITIONAL_INDENT_OPTIONS>
         <ADDITIONAL_INDENT_OPTIONS fileType="jsp">
           <option name="INDENT_SIZE" value="4" />
@@ -31,6 +32,7 @@
           <option name="SMART_TABS" value="false" />
           <option name="LABEL_INDENT_SIZE" value="0" />
           <option name="LABEL_INDENT_ABSOLUTE" value="false" />
+          <option name="USE_RELATIVE_INDENTS" value="false" />
         </ADDITIONAL_INDENT_OPTIONS>
         <ADDITIONAL_INDENT_OPTIONS fileType="xml">
           <option name="INDENT_SIZE" value="4" />
@@ -40,6 +42,7 @@
           <option name="SMART_TABS" value="false" />
           <option name="LABEL_INDENT_SIZE" value="0" />
           <option name="LABEL_INDENT_ABSOLUTE" value="false" />
+          <option name="USE_RELATIVE_INDENTS" value="false" />
         </ADDITIONAL_INDENT_OPTIONS>
       </value>
     </option>
@@ -76,6 +79,9 @@
     <option name="DEPRECATION" value="false" />
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
   <component name="ExportToHTMLSettings">
     <option name="OPEN_IN_BROWSER" value="true" />
     <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/encapsulation-java/target" />
@@ -142,6 +148,7 @@
           <option name="IGNORE_DEPRECATED" value="false" />
           <option name="IGNORE_JAVADOC_PERIOD" value="true" />
           <option name="IGNORE_DUPLICATED_THROWS" value="false" />
+          <option name="IGNORE_POINT_TO_ITSELF" value="false" />
           <option name="myAdditionalJavadocTags" value="" />
         </inspection_tool>
         <inspection_tool class="LocalCanBeFinal" enabled="true" level="WARNING" enabled_by_default="true">
@@ -150,21 +157,6 @@
         </inspection_tool>
         <inspection_tool class="NonJaxWsWebServices" enabled="false" level="WARNING" enabled_by_default="false" />
         <inspection_tool class="OneWayWebMethod" enabled="false" level="ERROR" enabled_by_default="false" />
-        <inspection_tool class="UNUSED_SYMBOL" enabled="true" level="WARNING" enabled_by_default="true">
-          <option name="LOCAL_VARIABLE" value="true" />
-          <option name="FIELD" value="true" />
-          <option name="METHOD" value="true" />
-          <option name="CLASS" value="true" />
-          <option name="PARAMETER" value="true" />
-          <option name="REPORT_PARAMETER_FOR_PUBLIC_METHODS" value="true" />
-          <option name="INJECTION_ANNOS">
-            <value>
-              <list size="1">
-                <item index="0" class="java.lang.String" itemvalue="org.mockito.Mock" />
-              </list>
-            </value>
-          </option>
-        </inspection_tool>
         <inspection_tool class="ValidExternallyBoundObject" enabled="false" level="ERROR" enabled_by_default="false" />
       </profile>
     </profiles>
@@ -357,7 +349,7 @@
     <option name="deletePackageOccurrences" value="true" />
   </component>
   <component name="VcsDirectoryMappings">
-    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
   </component>
   <component name="WebServicesPlugin" addRequiredLibraries="true" />
   <component name="com.sixrr.metrics.MetricsReloaded">

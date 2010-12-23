@@ -45,7 +45,7 @@ public class ZipContents {
         String entryPath = entry.getName();
 
         String name = extractFilenameFrom(entryPath);
-        String type = extractTypeFrom(name);
+        String type = extractFileTypeFrom(name);
         String directory = extractDirectoryFrom(entryPath);
 
         return new ZipContentsEntry(name, type, directory);
@@ -63,7 +63,7 @@ public class ZipContents {
         return (indexOfLastSlash == -1) ? "/" : "/" + entryPath.substring(0, indexOfLastSlash);
     }
 
-    private static String extractTypeFrom(String filename) {
+    private static String extractFileTypeFrom(String filename) {
         int indexOfDot = filename.lastIndexOf(".");
         return filename.substring(indexOfDot + 1);
     }
