@@ -24,7 +24,7 @@ public class LineTest {
 
     @Test
     public void handles_single_point_line() {
-        Line line = new Line(endPoint());
+        Line line = new Line(pointWithDistanceToNextPointOf(10));
 
         assertThat(line.length(), is(0));
     }
