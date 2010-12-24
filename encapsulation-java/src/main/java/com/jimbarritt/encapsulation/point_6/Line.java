@@ -9,10 +9,17 @@ public class Line {
     }
 
     public int length() {
-        int
-        for (Point point : points) {
-
+        if (points.length <= 1) {
+            return 0;
         }
-        return 0;
+
+        int totalLength = 0;
+
+        Point startPoint = points[0];
+        for (int i = 1; i < points.length; ++i) {
+            totalLength += startPoint.distanceTo(points[i]);
+            startPoint = points[i];
+        }
+        return totalLength;
     }
 }

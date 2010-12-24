@@ -1,6 +1,7 @@
 package com.jimbarritt.encapsulation.point_6;
 
 import org.junit.*;
+
 import static com.jimbarritt.encapsulation.point_6.CalculationPrecision.*;
 import static java.lang.String.format;
 import static junit.framework.Assert.*;
