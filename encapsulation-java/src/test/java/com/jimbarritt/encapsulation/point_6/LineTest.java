@@ -22,6 +22,13 @@ public class LineTest {
 
     }
 
+    @Test
+    public void handles_single_point_line() {
+        Line line = new Line(endPoint());
+
+        assertThat(line.length(), is(0));
+    }
+
     private static Point pointWithDistanceToNextPointOf(int distanceToNextPoint) {
         return new FakePoint(distanceToNextPoint);
     }

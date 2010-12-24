@@ -9,10 +9,6 @@ public class Line {
     }
 
     public int length() {
-        if (points.length <= 1) {
-            return 0;
-        }
-
         int totalLength = 0;
 
         Point startPoint = points[0];
