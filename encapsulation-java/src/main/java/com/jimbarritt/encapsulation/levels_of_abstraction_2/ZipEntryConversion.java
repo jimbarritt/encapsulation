@@ -2,17 +2,24 @@ package com.jimbarritt.encapsulation.levels_of_abstraction_2;
 
 import java.util.zip.*;
 
+import static com.jimbarritt.encapsulation.levels_of_abstraction_2.Filename.*;
+
 public class ZipEntryConversion {
-    private final ZipEntry zipEntry;
     private final String entryPath;
+    private final boolean hasNoSlash;
+    private int indexOfLastSlash;
 
     public static ZipEntryConversion convert(ZipEntry zipEntry) {
-        return new ZipEntryConversion(zipEntry);
+        String name = zipEntry.getName();
+        int indexOfLastSlash = name.lastIndexOf("/");
+        boolean hasSlash =  indexOfLastSlash == -1;
+        return new ZipEntryConversion(name, hasSlash, indexOfLastSlash);
     }
 
-    public ZipEntryConversion(ZipEntry zipEntry) {
-        this.zipEntry = zipEntry;
-        this.entryPath = zipEntry.getName();
+    private ZipEntryConversion(String entryPath, boolean hasNoSlash, int indexOfLastSlash) {
+        this.entryPath = entryPath;
+        this.hasNoSlash = hasNoSlash;
+        this.indexOfLastSlash = indexOfLastSlash;
     }
 
     public ZipContentsEntry toZipContentsEntry() {
@@ -23,29 +30,21 @@ public class ZipEntryConversion {
     }
 
     private Filename filename() {
-        String name = pathHasNoSlash()
+        String name = this.hasNoSlash
                 ? entryPath
-                : entryPath.substring(indexOfLastSlash());
+                : entryPath.substring(indexOfLastSlash);
 
-        return Filename.parse(trimLeadingSlash(name));
+        return parse(trimLeadingSlash(name));
     }
 
 
     private String directory() {
-        return pathHasNoSlash()
+        return this.hasNoSlash
                 ? "/"
-                : entryPath.substring(0, indexOfLastSlash());
+                : entryPath.substring(0, indexOfLastSlash);
     }
 
-    private boolean pathHasNoSlash() {
-        return indexOfLastSlash() == -1;
-    }
-
-    private int indexOfLastSlash() {
-        return zipEntry.getName().lastIndexOf("/");
-    }
-
-    private String trimLeadingSlash(String name) {
+    private static String trimLeadingSlash(String name) {
         if (name.startsWith("/")) {
             return name.substring(1);
         }
