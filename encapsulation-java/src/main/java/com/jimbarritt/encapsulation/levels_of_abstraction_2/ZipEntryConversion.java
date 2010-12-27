@@ -16,29 +16,25 @@ public class ZipEntryConversion {
     }
 
     public ZipContentsEntry toZipContentsEntry() {
-        return new ZipContentsEntry(getFilename(),
-                                    getType(),
-                                    getDirectory());
+        Filename filename = filename();
+        return new ZipContentsEntry(filename.getFullname(),
+                filename.getType(),
+                directory());
     }
 
-    private String getFilename() {
+    private Filename filename() {
         String name = pathHasNoSlash()
-                            ? entryPath
-                            : entryPath.substring(indexOfLastSlash());
+                ? entryPath
+                : entryPath.substring(indexOfLastSlash());
 
-        return trimLeadingSlash(name);
+        return Filename.parse(trimLeadingSlash(name));
     }
 
-    private String getDirectory() {
+
+    private String directory() {
         return pathHasNoSlash()
-                      ? "/"
-                      : entryPath.substring(0, indexOfLastSlash());
-    }
-
-    private String getType() {
-        String filename = getFilename();
-        int indexDot = filename.lastIndexOf(".");
-        return filename.substring(indexDot + 1);
+                ? "/"
+                : entryPath.substring(0, indexOfLastSlash());
     }
 
     private boolean pathHasNoSlash() {
